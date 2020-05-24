@@ -28,7 +28,7 @@ const App = () => {
 
       <Books
         show={page === 'books'}
-        authors={books}
+        books={books}
       />
 
       <NewBook

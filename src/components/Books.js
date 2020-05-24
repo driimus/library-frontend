@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Books = (props) => {
-  if (!props.show) {
+const Books = ({show, books}) => {
+  if (!show) {
     return null
   }
 
-  const books = []
+  if (books.loading) {
+    return (<div>loading ...</div>)
+  }
+
+  const { allBooks } = books.data
 
   return (
     <div>
@@ -22,7 +26,7 @@ const Books = (props) => {
               published
             </th>
           </tr>
-          {books.map(a =>
+          {allBooks.map(a =>
             <tr key={a.title}>
               <td>{a.title}</td>
               <td>{a.author}</td>
